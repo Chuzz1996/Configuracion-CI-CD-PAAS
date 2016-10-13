@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    
+    <h:head></h:head>
+
+    <h:body>
+        <h:form id="UsuariosActuales">
+                <p:layoutUnit position="center" resizable="true" size="700" minSize="40" maxSize="1000">
+                    <p:dataTable id="todas_consultas" var="consulta" value="#{RegistroBean.sp}"  >
+                     <p:column headerText="Id">
+                        <h:outputText value="#{consulta.identificador}" />
+                    </p:column>
+
+                    <p:column headerText="Titulo">
+                        <h:outputText value="#{consulta.titulo}" />
+                    </p:column>
+                    <p:column headerText="Comentario">
+                        <h:outputText value="#{consulta.comentario}" />
+                    </p:column>
+                    <p:column headerText="Fecha y Hora">
+                        <h:outputText value="#{consulta.fechayHora}" />
+                    </p:column>
+                </p:dataTable>
+                </p:layoutUnit>
+            <h3 style="margin-top: 0">Ingrese el numero del id del Foro que desea revisar</h3>
+                <p:inputText value="#{RegistroBean.idforo}"/>
+                <h:commandButton action="registrorespuestaforo" value="Consultar Foro" actionListener="#{RegistroBean.cargeForo()}" />
+            <p:separator />
+            <h3 style="margin-top: 0">Datos para agregar un nuevo foro</h3>
+            <h3 style="margin-top: 0">Ingrese usuario</h3>
+            <p:inputText value="#{RegistroBean.nombreUsuario}"/>
+            <h3 style="margin-top: 0">Correo usuario</h3>
+            <p:inputText value="#{RegistroBean.correoUsuario}"/>
+            <h3 style="margin-top: 0">Titulo foro</h3>
+            <p:inputText value="#{RegistroBean.titulo}"/>
+            <h3 style="margin-top: 0">Comentario foro</h3>
+            <p:inputText value="#{RegistroBean.comentario}"/>
+            <p:separator />
+            <p:commandButton value="Agregar Foro" update="UsuariosActuales" actionListener="#{RegistroBean.agregarForo()}" />
+        </h:form>
+    </h:body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head></h:head>
+
+    <h:body>
+        <h:form id="Registro">
+                            
+        <h3/>
+         <p:separator />
+                <h3 style="margin-top: 0">Respuestas del foro</h3>
+                <p:dataTable var="Respuestas" value="#{RegistroBean.respuesta}">
+
+                <p:column headerText="autor">
+                    <h:outputText value="#{Respuestas.autor.nombre}"/>
+                </p:column>
+                    <p:column headerText="contenido">
+                    <h:outputText value="#{Respuestas.contenido}"/>
+                </p:column>
+                <p:column headerText="fechayHora">
+                    <h:outputText value="#{Respuestas.fechayHora}"/>
+                </p:column>
+ 
+            </p:dataTable> 
+            <p:separator />
+                <h3 style="margin-top: 0">Datos para agregar un nuevo foro</h3>
+                <h3 style="margin-top: 0">Ingrese usuario</h3>
+                <p:inputText value="#{RegistroBean.nombreUsuario}"/>
+                <h3 style="margin-top: 0">Correo usuario</h3>
+                <p:inputText value="#{RegistroBean.correoUsuario}"/>
+                 <h3 style="margin-top: 0">Ingrese el numero del id del Foro</h3>
+                <p:inputText value="#{RegistroBean.idforo}"/>
+                <h3 style="margin-top: 0">ingrese su comentario </h3>
+                <p:inputText value="#{RegistroBean.contenido}"/><h3/>
+                <p:commandButton value="Agregar" update="Registro" actionListener="#{RegistroBean.agregarRespuesta()}" />
+            <p:separator />
+            <h:commandButton action="registroentradaforo" value="Regresar" />
+          </h:form>   
+    </h:body>
+
+</html>

@@ -1,6 +1,7 @@
 /home/estudiante/Documents/Configuracion-CI-CD-PAAS/src/main/java/edu/eci/pdsw/samples/persistence/PersistenceException.java
 /home/estudiante/Documents/Configuracion-CI-CD-PAAS/src/main/java/edu/eci/pdsw/samples/textview/DAOUseExample.java
 /home/estudiante/Documents/Configuracion-CI-CD-PAAS/src/main/java/edu/eci/pdsw/samples/persistence/mybatisimpl/MyBatisDaoFactory.java
+/home/estudiante/Documents/Configuracion-CI-CD-PAAS/src/main/java/edu/eci/pdsw/samples/services/ServiciosForoStubDaos.java
 /home/estudiante/Documents/Configuracion-CI-CD-PAAS/src/main/java/edu/eci/pdsw/samples/persistence/jdbcimpl/JDBCDaoUsuario.java
 /home/estudiante/Documents/Configuracion-CI-CD-PAAS/src/main/java/edu/eci/pdsw/samples/services/ServiciosForo.java
 /home/estudiante/Documents/Configuracion-CI-CD-PAAS/src/main/java/edu/eci/pdsw/samples/persistence/DaoFactory.java

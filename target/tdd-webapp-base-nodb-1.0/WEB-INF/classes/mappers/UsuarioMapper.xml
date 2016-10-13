@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="edu.eci.pdsw.samples.persistence.mybatisimpl.mappers.UsuarioMapper">
+    
+	<resultMap type ="Usuario" id="UsuariosResult">
+            <id property='email' column='email'/>
+            <result property='nombre' column = 'nombre'/>
+        </resultMap>         
+        
+        <resultMap type ="EntradaForo" id="EntradaForoResult">
+            <id property='identificador' column='id'/>
+            <result property='fechayHora' column = 'fecha_hora'/>
+            <result property = 'comentario' column = 'contenido' />
+            <association property="autor" javaType="usuario" resultMap='UsuariosResult' columnPrefix='ef_'></association>
+            <!--<collection property='respuestas' ofType='Comentario' resultMap='ComentarioResult' columnPrefix='cm_'/>-->
+        </resultMap>          	
+        
+        <select id="getUsuario" resultMap="UsuariosResult">
+            select nombre, email from USUARIOS LEFT JOIN ENTRADAS_FOROS on USUARIOS_email = email
+            where email=#{emailusuario}
+        </select>
+        
+        <insert id="insertUsuario" parameterType="map">
+            insert into USUARIOS values(#{emailusuario},#{nombreusuario})
+        </insert>
+</mapper>

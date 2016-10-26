@@ -65,7 +65,7 @@ public abstract class ServiciosForo implements Serializable {
      * REJISTRA una nueva entrada al foro. El identificador de la EntradaForo sera
      * asignado por el sistema una vez se haya registrado
      * @param f la nueva entrada al foro
-     * @throws SQLException si f no tiene asociado su  usuario
+     * @throws ExcepcionServiciosForos si f no tiene asociado su  usuario
      */
     public abstract void registrarNuevaEntradaForo(EntradaForo f) throws ExcepcionServiciosForos;
     

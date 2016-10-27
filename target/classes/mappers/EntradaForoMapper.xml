@@ -54,7 +54,10 @@
     </select>
     
     <insert id = "agregarComentarioAEntradaForo" parameterType="map">
-        insert into ENTRADAS_FOROS values(#{idEntradaForo},#{Comentario})
+        insert into Comentarios values(#{idEntradaForo},#{Comentario})
     </insert>
     
+    <insert id = "agregarEntradaForo" parameterType="map">
+        insert into ENTRADAS_FOROS values(#{},#{Comentario})
+    </insert>
 </mapper>

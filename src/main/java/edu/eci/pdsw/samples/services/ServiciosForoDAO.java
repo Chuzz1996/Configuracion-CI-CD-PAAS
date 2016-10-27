@@ -113,12 +113,7 @@ public class ServiciosForoDAO extends ServiciosForo{
     public void agregarRespuestaForo(int idforo, Comentario c) throws ExcepcionServiciosForos {
         try{
             daoF.beginSession();
-            foros = daoF.getDaoEntradaForo();
-            EntradaForo foroEntrada = foros.load(idforo);
-            Set<Comentario> comentarios = foroEntrada.getRespuestas();
-            comentarios.add(c);
-            foroEntrada.setRespuestas(comentarios);
-            foros.update(foroEntrada);
+            daoF.getDaoEntradaForo().addToForo(idforo, c);
             daoF.commitTransaction();
         }catch(PersistenceException ex){
             try {
@@ -143,14 +138,7 @@ public class ServiciosForoDAO extends ServiciosForo{
         Usuario user = null;
         try{
             daoF.beginSession();
-            foros = daoF.getDaoEntradaForo();
-            List<EntradaForo> tmp = foros.loadAll();
-            for(EntradaForo p:tmp){
-                if(p.getAutor().getEmail().equals(email)){
-                    user = p.getAutor();
-                    break;
-                }
-            }
+            user = daoF.getDaoUsuario().load(email);
         }catch(PersistenceException ex){
             try {
                 daoF.rollbackTransaction();

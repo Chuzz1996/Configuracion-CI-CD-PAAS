@@ -53,11 +53,14 @@
         where ef.id=#{id}
     </select>
     
-    <insert id = "agregarComentarioAEntradaForo" parameterType="map">
-        insert into Comentarios values(#{idEntradaForo},#{Comentario})
+    <insert id="agregarEntradaForo" parameterType="map">
+        INSERT INTO ENTRADAS_FOROS (id,fecha_hora,contenido,USUARIOS_email)
+        VALUES (#{entradaForo.identificador},#{entradaForo.fechayHora},#{entradaForo.comentario},#{entradaForo.autor.email})
     </insert>
     
-    <insert id = "agregarEntradaForo" parameterType="map">
-        insert into ENTRADAS_FOROS values(#{},#{Comentario})
+     <insert id="addToEntradaForo" parameterType="map">
+        INSERT INTO COMENTARIOS (fecha_hora,contenido,entradas_foros_id,usuarios_email)
+        VALUES (#{comentario.getFechayHora()},#{comentario.getContenido()},#{identrada},#{comentario.getAutor().getEmail()})
     </insert>
+    
 </mapper>

@@ -29,9 +29,11 @@ import java.util.List;
  * @author hcadavid
  */
 public class JDBCDaoEntradaForo implements DaoEntradaForo {
+    
+    Connection con;
 
     public JDBCDaoEntradaForo(Connection con) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.con = con;
     }
 
     

@@ -2,8 +2,8 @@ edu/eci/pdsw/samples/managedbeans/RegistroForosBean.class
 edu/eci/pdsw/samples/persistence/jdbcimpl/JDBCDaoEntradaForo.class
 edu/eci/pdsw/samples/persistence/mybatisimpl/mappers/UsuarioMapper.class
 edu/eci/pdsw/samples/persistence/mybatisimpl/MyBatisDAOEntradaForo.class
-edu/eci/pdsw/samples/textview/MyBatisExample.class
 edu/eci/pdsw/samples/persistence/PersistenceException.class
+edu/eci/pdsw/samples/textview/MyBatisExample.class
 edu/eci/pdsw/samples/entities/EntradaForo.class
 edu/eci/pdsw/samples/services/ServiciosForoDAO.class
 edu/eci/pdsw/samples/persistence/mybatisimpl/mappers/EntradaForoMapper.class

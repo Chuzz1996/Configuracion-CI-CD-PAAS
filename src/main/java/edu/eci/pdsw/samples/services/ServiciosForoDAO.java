@@ -35,7 +35,7 @@ public class ServiciosForoDAO extends ServiciosForo{
     
     public ServiciosForoDAO(){
         try{
-            InputStream input = getClass().getClassLoader().getResource("applicationconfig.properties").openStream();
+            InputStream input = getClass().getClassLoader().getResource("applicationconfig_1.properties").openStream();
             Properties properties=new Properties();
             properties.load(input);
             daoF = DaoFactory.getInstance(properties);

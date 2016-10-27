@@ -28,19 +28,19 @@ import java.util.logging.Logger;
  *
  * @author estudiante
  */
-public class ServiciosForoStubDaos extends ServiciosForo{
+public class ServiciosForoDAO extends ServiciosForo{
 
     private DaoEntradaForo foros;
     private DaoFactory daoF;
     
-    public ServiciosForoStubDaos(){
+    public ServiciosForoDAO(){
         try{
             InputStream input = getClass().getClassLoader().getResource("applicationconfig_1.properties").openStream();
             Properties properties=new Properties();
             properties.load(input);
             daoF = DaoFactory.getInstance(properties);
         }catch(IOException ex){
-            Logger.getLogger(ServiciosForoStubDaos.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ServiciosForoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -52,13 +52,13 @@ public class ServiciosForoStubDaos extends ServiciosForo{
             foros = daoF.getDaoEntradaForo();
             EF = foros.loadAll();
         }catch(PersistenceException ex){
-            Logger.getLogger(ServiciosForoStubDaos.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ServiciosForoDAO.class.getName()).log(Level.SEVERE, null, ex);
             throw new ExcepcionServiciosForos(ex.getMessage());
         }finally{
             try {
                daoF.endSession();
            } catch (PersistenceException ex) {
-               Logger.getLogger(ServiciosForoStubDaos.class.getName()).log(Level.SEVERE, null, ex);
+               Logger.getLogger(ServiciosForoDAO.class.getName()).log(Level.SEVERE, null, ex);
                throw new ExcepcionServiciosForos(ex.getMessage());
            }
         }return EF;
@@ -72,13 +72,13 @@ public class ServiciosForoStubDaos extends ServiciosForo{
             foros = daoF.getDaoEntradaForo();
             EF = foros.load(id);
         }catch(PersistenceException ex){
-            Logger.getLogger(ServiciosForoStubDaos.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ServiciosForoDAO.class.getName()).log(Level.SEVERE, null, ex);
             throw new ExcepcionServiciosForos(ex.getMessage());
         }finally{
             try {
                 daoF.endSession();
             } catch (PersistenceException ex) {
-                Logger.getLogger(ServiciosForoStubDaos.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ServiciosForoDAO.class.getName()).log(Level.SEVERE, null, ex);
                 throw new ExcepcionServiciosForos(ex.getMessage());
             }
         }return EF;
@@ -95,15 +95,15 @@ public class ServiciosForoStubDaos extends ServiciosForo{
             try{
                 daoF.rollbackTransaction();
             }catch(PersistenceException e){
-                Logger.getLogger(ServiciosForoStubDaos.class.getName()).log(Level.SEVERE, null, e);
+                Logger.getLogger(ServiciosForoDAO.class.getName()).log(Level.SEVERE, null, e);
             }
-            Logger.getLogger(ServiciosForoStubDaos.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ServiciosForoDAO.class.getName()).log(Level.SEVERE, null, ex);
             throw new ExcepcionServiciosForos(ex.getMessage());
         }finally{
             try{
                 daoF.endSession();
             }catch(PersistenceException ex){
-                Logger.getLogger(ServiciosForoStubDaos.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ServiciosForoDAO.class.getName()).log(Level.SEVERE, null, ex);
                 throw new ExcepcionServiciosForos(ex.getMessage());
             }
         }
@@ -124,15 +124,15 @@ public class ServiciosForoStubDaos extends ServiciosForo{
             try {
                 daoF.rollbackTransaction();
             }catch (PersistenceException e) {
-                Logger.getLogger(ServiciosForoStubDaos.class.getName()).log(Level.SEVERE, null, e);
+                Logger.getLogger(ServiciosForoDAO.class.getName()).log(Level.SEVERE, null, e);
             }
-            Logger.getLogger(ServiciosForoStubDaos.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ServiciosForoDAO.class.getName()).log(Level.SEVERE, null, ex);
             throw new ExcepcionServiciosForos(ex.getMessage());
         }finally{
             try{
                 daoF.endSession();
             }catch(PersistenceException ex){
-                Logger.getLogger(ServiciosForoStubDaos.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ServiciosForoDAO.class.getName()).log(Level.SEVERE, null, ex);
                 throw new ExcepcionServiciosForos(ex.getMessage());
             }
         }
@@ -155,15 +155,15 @@ public class ServiciosForoStubDaos extends ServiciosForo{
             try {
                 daoF.rollbackTransaction();
             }catch (PersistenceException e) {
-                Logger.getLogger(ServiciosForoStubDaos.class.getName()).log(Level.SEVERE, null, e);
+                Logger.getLogger(ServiciosForoDAO.class.getName()).log(Level.SEVERE, null, e);
             }
-            Logger.getLogger(ServiciosForoStubDaos.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ServiciosForoDAO.class.getName()).log(Level.SEVERE, null, ex);
             throw new ExcepcionServiciosForos(ex.getMessage());
         }finally{
             try{
                 daoF.endSession();
             }catch(PersistenceException ex){
-                Logger.getLogger(ServiciosForoStubDaos.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ServiciosForoDAO.class.getName()).log(Level.SEVERE, null, ex);
                 throw new ExcepcionServiciosForos(ex.getMessage());
             }
         }return user;

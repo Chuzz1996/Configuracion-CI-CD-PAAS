@@ -31,7 +31,7 @@ import java.util.Set;
 public abstract class ServiciosForo implements Serializable {
     
     
-    private static ServiciosForo instance=new ServiciosForoStubDaos();
+    private static ServiciosForo instance=new ServiciosForoDAO();
     
     
     protected ServiciosForo(){        

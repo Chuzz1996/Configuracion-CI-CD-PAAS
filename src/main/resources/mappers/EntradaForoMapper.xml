@@ -30,15 +30,15 @@
     
     <!-- SENTENCIAS --> 
     
-    <select id="getEntradasForo" resultMap="EntradaForoResult">
-        select ef.id as id, ef.fecha_hora as fecha_hora , ef.contenido as contenido,
-        cm.id as cm_id, cm.fecha_hora as cm_fecha_hora, cm.contenido as cm_contenido, 
-        autor.nombre as ef_nombre, autor.email as ef_email,
-        autorcom.nombre as cm_ucm_nombre,  autorcom.email as cm_ucm_email
+      <select id="getEntradasForo" resultMap="EntradaForoResult">
+        select ef.id, ef.fecha_hora, ef.contenido as contenido,
+        cm.id, cm.fecha_hora, cm.contenido, 
+        autor.nombre, autor.email,
+        autorcom.nombre,  autorcom.email
         from ENTRADAS_FOROS as ef 
-        INNER JOIN COMENTARIOS as cm ON ef.`id` = cm.`ENTRADAS_FOROS_id` 
+        LEFT JOIN COMENTARIOS as cm ON ef.`id` = cm.`ENTRADAS_FOROS_id` 
         INNER JOIN USUARIOS as autor ON autor.email=ef.USUARIOS_email
-        INNER JOIN USUARIOS as autorcom ON autorcom.email=cm.USUARIOS_email
+        LEFT JOIN USUARIOS as autorcom ON autorcom.email=cm.USUARIOS_email
     </select>
     
     <select id="getEntradaForo" resultMap="EntradaForoResult">
@@ -47,9 +47,9 @@
         autor.nombre as ef_nombre, autor.email as ef_email,
         autorcom.nombre as cm_ucm_nombre,  autorcom.email as cm_ucm_email
         from ENTRADAS_FOROS as ef 
-        INNER JOIN COMENTARIOS as cm ON ef.`id` = cm.`ENTRADAS_FOROS_id` 
+        LEFT JOIN COMENTARIOS as cm ON ef.`id` = cm.`ENTRADAS_FOROS_id` 
         INNER JOIN USUARIOS as autor ON autor.email=ef.USUARIOS_email
-        INNER JOIN USUARIOS as autorcom ON autorcom.email=cm.USUARIOS_email
+        LEFT JOIN USUARIOS as autorcom ON autorcom.email=cm.USUARIOS_email
         where ef.id=#{id}
     </select>
     
@@ -60,7 +60,7 @@
     
      <insert id="addToEntradaForo" parameterType="map">
         INSERT INTO COMENTARIOS (fecha_hora,contenido,entradas_foros_id,usuarios_email)
-        VALUES (#{comentario.getFechayHora()},#{comentario.getContenido()},#{identrada},#{comentario.getAutor().getEmail()})
-    </insert>
+        VALUES (#{Comentario.fechayHora},#{Comentario.contenido},#{idEntradaForo},#{Comentario.autor.email})
+    </insert>>
     
 </mapper>

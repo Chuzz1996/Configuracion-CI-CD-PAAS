@@ -32,25 +32,25 @@ import org.apache.ibatis.session.SqlSession;
  */
 public class MyBatisDAOEntradaForo implements DaoEntradaForo{
 
-    private EntradaForoMapper currentSession=null;
+    private SqlSession currentSession=null;
 
     public MyBatisDAOEntradaForo(SqlSession session) {
-        this.currentSession=session.getMapper(EntradaForoMapper.class);
+        this.currentSession=session;
     }
         
     @Override
     public EntradaForo load(int id) throws PersistenceException {
-        return currentSession.getEntradaForo(id);
+        return currentSession.getMapper(EntradaForoMapper.class).getEntradaForo(id);
     }
 
     @Override
     public List<EntradaForo> loadAll() throws PersistenceException {
-        return (ArrayList<EntradaForo>) currentSession.getEntradasForo();
+        return currentSession.getMapper(EntradaForoMapper.class).getEntradasForo();
     }
 
     @Override
     public void save(EntradaForo e) throws PersistenceException {
-        currentSession.getEntradasForo();
+        currentSession.getMapper(EntradaForoMapper.class).agregarEntradaForo(e);
     }
 
     @Override
@@ -60,7 +60,7 @@ public class MyBatisDAOEntradaForo implements DaoEntradaForo{
 
     @Override
     public void addToForo(int idForo, Comentario c) throws PersistenceException {
-        currentSession.agregarComentarioAEntradaForo(idForo, c);
+        currentSession.getMapper(EntradaForoMapper.class).addToEntradaForo(idForo, c);
     }
     
 }

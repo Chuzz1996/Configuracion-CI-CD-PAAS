@@ -27,12 +27,13 @@ import org.apache.ibatis.annotations.Param;
  */
 public interface EntradaForoMapper {
     
-    
     public List<EntradaForo> getEntradasForo();
     
     public EntradaForo getEntradaForo(@Param("id")int id);
     
-    public void agregarComentarioAEntradaForo(@Param("idEntradaForo")int idEntradaForo,@Param("Comentario")Comentario c);
+    public void addToEntradaForo(@Param("idEntradaForo")int idEntradaForo,@Param("Comentario")Comentario c);
+    
+    public void agregarEntradaForo(@Param("entradaForo") EntradaForo ef);
     
     
 }

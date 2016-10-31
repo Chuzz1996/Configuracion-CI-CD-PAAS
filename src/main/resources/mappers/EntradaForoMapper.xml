@@ -61,6 +61,6 @@
      <insert id="addToEntradaForo" parameterType="map">
         INSERT INTO COMENTARIOS (fecha_hora,contenido,entradas_foros_id,usuarios_email)
         VALUES (#{Comentario.fechayHora},#{Comentario.contenido},#{idEntradaForo},#{Comentario.autor.email})
-    </insert>>
+    </insert>
     
 </mapper>

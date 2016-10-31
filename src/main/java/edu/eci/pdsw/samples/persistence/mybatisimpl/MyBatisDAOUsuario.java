@@ -32,19 +32,19 @@ public class MyBatisDAOUsuario implements DaoUsuario{
     private UsuarioMapper currentSession=null;
 
     public MyBatisDAOUsuario(SqlSession session) {
-        this.currentSession=session.getMapper(UsuarioMapper.class);
+        his.currentSession=session;
     }
     
     
     
     @Override
     public Usuario load(String email) throws PersistenceException {
-        return currentSession.getUsuario(email);
+        return currentSession.getMapper(UsuarioMapper.class).getUsuario(email);
     }
 
     @Override
     public void save(Usuario p) throws PersistenceException {
-        currentSession.insertUsuario(p.getEmail(), p.getNombre());
+        currentSession.getMapper(UsuarioMapper.class).insertUsuario(p.getEmail(),p.getNombre());
     }
 
     @Override
